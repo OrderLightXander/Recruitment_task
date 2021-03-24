@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1>All Books<h1>
+	{% for book in books %}
+<article class="media content-section">
+	  <div class="media-body">
+	      <a class="article-title" href="{{ url_for('book', bookid=book.id) }}">{{ book.title }}</a>
+	      {% for author in book.authors %}
+	      <h3></h3>
+	      <a class="article-title" href="{{ url_for('filtered_books', filtered_value=author.author_name, value_name='authors') }}">Author : {{ author.author_name }}</a>
+	      {% endfor %}
+	      <h3></h3>
+	      <a class="article-title" href="{{ url_for('filtered_books', filtered_value=book.published_date, value_name='published_date') }}">Release Date : {{ book.published_date }}</a>
+          {% for category in book.categories %}
+          <h3></h3>
+          <a class="article-title" href="{{ url_for('filtered_books', filtered_value=category.category_name, value_name='categories') }}">Category : {{ category.category_name }}</a>
+          {% endfor %}
+          <h3></h3>
+	      <h3 class="text-muted">Average rating: {{ book.average_rating }}</h3>
+	      <h3 class="text-muted">Ratings count: {{ book.ratings_count }}</h3>
+	      <img src={{ book.thumblnail }}>
+	  </div>
+	</article>
+	{% endfor %}
+{% endblock content %}

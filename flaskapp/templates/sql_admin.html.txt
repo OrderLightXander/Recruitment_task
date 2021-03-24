@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1>Database Page</h1>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Books Table</h2>
+<details>
+	<summary>expand</summary>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Authors</th>
+    <th>Published Date</th>
+    <th>Categories</th>
+    <th>Average Rating</th>
+    <th>Ratings Count</th>
+    <th>Thumbnail</th>
+  </tr>
+ {% for book in books %}
+   <tr>
+   	<td>{{ book.id }}</td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.authors }}</td>
+    <td>{{ book.published_date }}</td>
+    <td>{{ book.categories }}</td>
+    <td>{{ book.average_rating }}</td>
+    <td>{{ book.ratings_count }}</td>
+    <td>{{ book.thumblnail }}</td>
+    </td>
+  </tr>
+ {% endfor %}
+ </table>
+</details>
+
+<h2>Authors Table</h2>
+<details>
+	<summary>expand</summary>
+<table>
+  <tr>
+    <th>Author ID</th>
+    <th>Author Name</th>
+  </tr>
+ {% for author in authors %}
+   <tr>
+   	<td>{{ author.author_id }}</td>
+    <td>{{ author.author_name }}</td>
+    </td>
+  </tr>
+ {% endfor %}
+ </table>
+</details>
+
+<h2>Categories Table</h2>
+<details>
+	<summary>expand</summary>
+<table>
+  <tr>
+    <th>Category ID</th>
+    <th>Category Name</th>
+  </tr>
+ {% for category in categories %}
+   <tr>
+   	<td>{{ category.category_id }}</td>
+    <td>{{ category.category_name }}</td>
+    </td>
+  </tr>
+ {% endfor %}
+ </table>
+</details>
+
+</body>
+{% endblock content %}
+

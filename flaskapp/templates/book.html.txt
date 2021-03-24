@@ -1,0 +1,10 @@
+{% extends "layout.html" %} {% block content %}
+{{ book.title }}
+{{ book.title }} {% for author in book.authors %}
+Author : {{ author.author_name }} {% endfor %}
+Release Date : {{ book.published_date }} {% for category in book.categories %}
+Category : {{ category.category_name }} {% endfor %}
+Average rating: {{ book.average_rating }}
+Ratings count: {{ book.ratings_count }}
+
+{% endblock content %}
