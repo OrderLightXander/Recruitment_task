@@ -1,0 +1,4 @@
+py -m pip install Flask
+py -m pip install SQLAlchemy
+py -m pip install Bcrypt
+py -m pip install Flask-WTF
